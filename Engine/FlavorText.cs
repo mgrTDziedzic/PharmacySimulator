@@ -8,21 +8,52 @@ namespace Engine
 {
     public class FlavorText
     {
-        private static string[] idleText = 
+        public static string[] combinedMaleText
+        {
+            get
+            {
+                string[] combined = new string[genericIdleText.Length + maleIdleText.Length];
+                Array.Copy(genericIdleText, combined, genericIdleText.Length);
+                Array.Copy(maleIdleText, 0, combined, genericIdleText.Length, maleIdleText.Length);
+                return combined;
+            }
+        }
+
+        public static string[] combinedFemaleText
+        {
+            get
+            {
+                string[]combined = new string[genericIdleText.Length + femaleIdleText.Length];
+                Array.Copy(genericIdleText, combined, genericIdleText.Length);
+                Array.Copy(femaleIdleText, 0, combined, genericIdleText.Length, femaleIdleText.Length);
+                return combined;
+            }
+        }
+
+        private static string[] genericIdleText = 
         {
             "obija się",
             "dłubie w nosie",
             "kontempluje stan polskiego aptekarstwa",
             "obserwuje czubek chodaka",
-            "czyta na Wikipedii o działaniu silnika indukcyjnego",
-            "przegląda Ratlerka",
             "obgryza paznokcie",
-            "grzebie pilnikiem pod paznokciami",
             "duma nad sensem życia",
             "trolluje na Ryneczku",
-            "ogląda Wikifeet",
-            "liczy guziki fartucha",
-            "fantazjuje o Sashy Grey"
+            "liczy guziki fartucha",            
+        };
+
+        private static string[] maleIdleText =
+        {
+            "czyta na Wikipedii o działaniu silnika indukcyjnego",
+            "fantazjuje o Sashy Grey",
+            "ogląda Wikifeet"
+        };
+
+        private static string[] femaleIdleText =
+        {
+            "maluje paznokcie",
+            "grzebie pilnikiem pod paznokciami",
+            "przegląda Ratlerka"
         };
 
         public static string[] AggroTexts =
@@ -46,11 +77,13 @@ namespace Engine
             "żąda rozmowy z właścicielem"
         };
 
+        /*
         public static string IdleMessage(Employee employee, Workstation workstation)
         {
             int randomIndex = RandomNumberGenerator.NumberBetween(0, idleText.Length - 1);
 
             return String.Format("{0} {1} na stanowisku {2}" + Environment.NewLine, employee.Name, idleText[randomIndex], workstation.Number);
         }
+        */
     }
 }

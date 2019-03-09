@@ -15,13 +15,13 @@ namespace Engine
         {
             get
             {
-                int randomIndex = RandomNumberGenerator.NumberBetween(0, aggroTextsArray.Length - 1);
-                return Name + " " + aggroTextsArray[randomIndex];
+                int randomIndex = RandomNumberGenerator.NumberBetween(0, aggroTextArray.Length - 1);
+                return Name + " " + aggroTextArray[randomIndex];
             }   
         }
 
 
-        public string[] aggroTextsArray;
+        private string[] aggroTextArray;
 
         public List<InventoryItem> Prescription { get; set; }
         public Queue<InventoryItem> OTCList { get; private set; }
@@ -31,8 +31,8 @@ namespace Engine
             Id = id;
             Name = name;
             Aggressiveness = aggressiveness;
-            Aggressiveness = 100; // test
-            this.aggroTextsArray = aggroTextsArray;
+         //   Aggressiveness = 100; // test
+            this.aggroTextArray = aggroTextsArray;
             PopulateQTCList();
         }
 

@@ -44,13 +44,13 @@ namespace Engine
             }
 
             Workstations[0] = new Workstation(1, this);
-            Workstations[0].CurrentEmployee = new Employee(1, "Janek", 100);
+            Workstations[0].CurrentEmployee = new Employee(1, "Janek", 100, FlavorText.combinedMaleText);
 
             Workstations[1] = new Workstation(2, this);
-            Workstations[1].CurrentEmployee = new Employee(2, "MP", 10);
+            Workstations[1].CurrentEmployee = new Employee(2, "MP", 10, FlavorText.combinedMaleText);
 
             Workstations[2] = new Workstation(3, this);
-            Workstations[2].CurrentEmployee = new Employee(3, "Mała Mi", 30);
+            Workstations[2].CurrentEmployee = new Employee(3, "Mała Mi", 30, FlavorText.combinedFemaleText);
 
             Workstations[3] = new Workstation(4, this);
 
@@ -94,6 +94,19 @@ namespace Engine
             return result;
         }
 
+        public InventoryItem itemFromInventoryByID(int id)
+        {
+            foreach (InventoryItem ii in Inventory)
+            {
+                if (ii.Details.ID == id)
+                {
+                    return ii;
+                }
+            }
+
+            return null;
+        }
+
         private void ShufflePatients() // Przetasowanie pacjentów przed kolejnym dniem
         {
             List<Patient> randomizedPatients = World.Patients.OrderBy(x => RandomNumberGenerator.NumberBetween(0,1)).ToList();
@@ -103,5 +116,7 @@ namespace Engine
                 TodayPatients.Enqueue(patient);
             }
         }
+
+
     }
 }

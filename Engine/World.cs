@@ -47,28 +47,28 @@ namespace Engine
 
         private static void PopulateEmployees()
         {
-            Employees.Add(new Employee(1, "Janek", 100));
-            Employees.Add(new Employee(2, "MP", 10));
-            Employees.Add(new Employee(3, "Mała Mi", 30));
+            Employees.Add(new Employee(1, "Janek", 100, FlavorText.combinedMaleText));
+            Employees.Add(new Employee(2, "MP", 10, FlavorText.combinedMaleText));
+            Employees.Add(new Employee(3, "Mała Mi", 30, FlavorText.combinedFemaleText));
         }
 
         private static void PopulatePatients()
         {
-            Patients.Add(new Patient(1, "Babcia Marianna", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(2, "Jego Eminencja", 20, new string[] { "robi Sodomę i Gomorę", "grozi ekskomuniką" }));
-            Patients.Add(new Patient(3, "Wujek Włodek", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(4, "Neo z Matrixa", 20, new string[] { "wygina zdalnie łyżki w socjalu" }));
-            Patients.Add(new Patient(5, "Buka", 20, new string[] { "stoi i się patrzy" } ));
-            Patients.Add(new Patient(6, "Sasha Grey", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(7, "Bolec", 20, new string[] { "giba się jak pier... rezus" }));
-            Patients.Add(new Patient(8, "Generał Italia", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(9, "Kapitan Bomba", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(10, "John Yossarian", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(11, "Major Major", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(12, "Morfeusz", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(13, "Genowefa Pigwa", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(14, "Bendżamin Fluor", 20, FlavorText.AggroTexts));
-            Patients.Add(new Patient(15, "Pan Tymol Mentol", 20, FlavorText.AggroTexts));
+            Patients.Add(new Patient(1, "Babcia Marianna", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(2, "Jego Eminencja", 10, new string[] { "robi Sodomę i Gomorę", "grozi ekskomuniką" }));
+            Patients.Add(new Patient(3, "Wujek Włodek", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(4, "Neo z Matrixa", 10, new string[] { "wygina zdalnie łyżki w socjalu" }));
+            Patients.Add(new Patient(5, "Buka", 10, new string[] { "stoi i się patrzy" } ));
+            Patients.Add(new Patient(6, "Sasha Grey", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(7, "Bolec", 10, new string[] { "giba się jak pier... rezus" }));
+            Patients.Add(new Patient(8, "Generał Italia", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(9, "Kapitan Bomba", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(10, "John Yossarian", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(11, "Major Major", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(12, "Morfeusz", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(13, "Genowefa Pigwa", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(14, "Bendżamin Fluor", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(15, "Pan Tymol Mentol", 10, FlavorText.AggroTexts));
         }
 
         public static Item ItemByID(int id)

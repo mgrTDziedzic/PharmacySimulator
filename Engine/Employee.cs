@@ -12,12 +12,23 @@ namespace Engine
         public string Name { get; }
         public int Assertiveness { get; set; }
 
-        public Employee(int id, string name, int assertiveness)
+        public string IdleText
         {
-            ID = id;
+            get
+            {
+                int randomIndex = RandomNumberGenerator.NumberBetween(0, idleTextArray.Length - 1);
+                return Name + " " + idleTextArray[randomIndex];
+            }
+        }
+
+        private string[] idleTextArray;
+
+        public Employee(int iD, string name, int assertiveness, string[] idleTextArray)
+        {
+            ID = iD;
             Name = name;
             Assertiveness = assertiveness;
-            Assertiveness = 0; // test
+            this.idleTextArray = idleTextArray;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Engine
         private Pharmacy pharmacy;
         private Patient currentPatient;
         private bool aggroOccured;
-        private int aggroCycle;
+        private int aggroCycle;        
 
         public enum StatusEnum
         {
@@ -23,7 +23,12 @@ namespace Engine
         }
 
         public int Number { get; private set; }        
-        public Employee CurrentEmployee { get; set; }     
+        public Employee CurrentEmployee { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format("(Stanowisko {0}):", Number);
+        }
 
         public string PatientName
         {
@@ -76,7 +81,7 @@ namespace Engine
             {
                 // Podchodzi pacjent z kolejki
                 currentPatient = pharmacy.PatientsQueue.Dequeue();
-                result += currentPatient.Name + " podchodzi do stanowiska " + Number.ToString() + Environment.NewLine;
+                result += String.Format("{0} {1} podchodzi do stanowiska{2}", this, currentPatient.Name, Environment.NewLine);
                 status = StatusEnum.Obsługa;
                 aggroOccured = false;
             }
@@ -92,7 +97,7 @@ namespace Engine
                         status = StatusEnum.Awantura;
                         aggroOccured = true;
                         aggroCycle = 0;
-                        result += currentPatient.Name + " zaczyna awanturę na stanowisku " + Number + "!" + Environment.NewLine;
+                        result += String.Format("{0} {1} zaczyna awanturę!{2}", this, currentPatient.Name, Environment.NewLine);
                     }
                 }
 
@@ -109,12 +114,12 @@ namespace Engine
                             // Udało się, zmieniamy status stanowiska
                             status = StatusEnum.Obsługa;
                             aggroCycle = 0;
-                            result += CurrentEmployee.Name + " pacyfikuje awanturnika na stanowisku " + Number.ToString() + Environment.NewLine;
+                            result += String.Format("{0} {1} pacyfikuje awanturnika{2}", this, CurrentEmployee.Name, Environment.NewLine);
                         }
                         else
                         {
                             // Nie udało się. Aggro trwa nadal
-                            result += "Trwa awantura na stanowisku " + Number.ToString() + "!" + " " + currentPatient.AggroText + Environment.NewLine;
+                            result += String.Format("{0} Awantura trwa! {1}{2}", this, currentPatient.AggroText, Environment.NewLine);
                         }
                     }
 
@@ -130,11 +135,7 @@ namespace Engine
                 {
                     if (currentPatient.OTCList.Count > 0)
                     {
-                        InventoryItem wantedItem = currentPatient.OTCList.Dequeue();
-                        pharmacy.Balance += wantedItem.Details.SellPrice;
-                        pharmacy.Reputation += 1;
-                        result += currentPatient.Name + " kupuje " + wantedItem.Details.Name + " na stanowisku " + Number.ToString() + " za " +
-                                  wantedItem.Details.SellPrice.ToString("c") + Environment.NewLine;
+                        result += sellOTCItem();
                     }
 
                     if (currentPatient.OTCList.Count == 0)
@@ -148,11 +149,36 @@ namespace Engine
             else
             {
                 // Jeśli nie ma pacjenta, wyświetl losową wiadomość o wolnym stanowisku
-                result = FlavorText.IdleMessage(CurrentEmployee, this);
+                result = String.Format("{0} {1}{2}", this, CurrentEmployee.IdleText, Environment.NewLine);
                 status = StatusEnum.Wolne;
             }
 
             return result;
         }
+
+        private string sellOTCItem()
+        {
+            string result = "";
+            InventoryItem wantedItem = currentPatient.OTCList.Dequeue();
+            InventoryItem inventoryItem = pharmacy.itemFromInventoryByID(wantedItem.Details.ID);
+
+            if (inventoryItem != null && inventoryItem.Quantity > 0 )
+            {
+                inventoryItem.Quantity -= wantedItem.Quantity;
+                pharmacy.Balance += wantedItem.Details.SellPrice;
+                pharmacy.Reputation += 1;
+                result += String.Format("{0} {1} kupuje {2} za {3}{4}", this, currentPatient.Name, wantedItem.Details.Name,
+                                        wantedItem.Details.SellPrice.ToString("c"), Environment.NewLine);
+            }
+            else
+            {
+                result = String.Format("{0} {1} chciał kupić {2} ale nie było (a za komuny to, panie, wszystko było!){3}", this, currentPatient.Name, wantedItem.Details.Name, Environment.NewLine);
+                pharmacy.Reputation -= 1;
+            }
+
+            return result;
+        }
+
+ 
     }
 }
