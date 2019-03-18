@@ -33,10 +33,10 @@ namespace Engine
             Aggressiveness = aggressiveness;
          //   Aggressiveness = 100; // test
             this.aggroTextArray = aggroTextsArray;
-            PopulateQTCList();
+            PopulateOTCList();
         }
 
-        private void PopulateQTCList()
+        private void PopulateOTCList()
         {
             this.OTCList = new Queue<InventoryItem>();
 
@@ -45,7 +45,7 @@ namespace Engine
             for (int i = 0; i < numberOfOTCLines; i++)
             {
                 int randomIndex = RandomNumberGenerator.NumberBetween(0, World.Items.Count - 1);
-                OTCList.Enqueue(new InventoryItem(World.Items[randomIndex], 1));
+                OTCList.Enqueue(new InventoryItem(World.Items[randomIndex], RandomNumberGenerator.NumberBetween(1, 10)));
             }
         }
     }

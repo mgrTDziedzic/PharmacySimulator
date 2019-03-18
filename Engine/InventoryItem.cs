@@ -16,5 +16,10 @@ namespace Engine
             Details = details;
             Quantity = quantity;
         }
+
+        public override string ToString()
+        {
+            return String.Format("{0} szt. {1}", Quantity, Details.Name);
+        }
     }
 }

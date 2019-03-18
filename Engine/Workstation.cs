@@ -158,21 +158,35 @@ namespace Engine
 
         private string sellOTCItem()
         {
+            decimal income = 0;
             string result = "";
             InventoryItem wantedItem = currentPatient.OTCList.Dequeue();
             InventoryItem inventoryItem = pharmacy.itemFromInventoryByID(wantedItem.Details.ID);
 
-            if (inventoryItem != null && inventoryItem.Quantity > 0 )
+            if (inventoryItem != null && inventoryItem.Quantity > 0) // Jeśli znaleziono towar i ilość większa od 0
             {
-                inventoryItem.Quantity -= wantedItem.Quantity;
-                pharmacy.Balance += wantedItem.Details.SellPrice;
-                pharmacy.Reputation += 1;
-                result += String.Format("{0} {1} kupuje {2} za {3}{4}", this, currentPatient.Name, wantedItem.Details.Name,
-                                        wantedItem.Details.SellPrice.ToString("c"), Environment.NewLine);
+                if (inventoryItem.Quantity >= wantedItem.Quantity) // Towar jest w ilości równej lub większej niż pacjent chce kupić
+                {
+                    inventoryItem.Quantity -= wantedItem.Quantity;
+                    income = wantedItem.Quantity * wantedItem.Details.SellPrice;
+                    pharmacy.Balance += income;
+                    pharmacy.Reputation += 1;
+                    result += String.Format("{0} {1} kupuje {2} za {3}{4}", this, currentPatient.Name, wantedItem,
+                                            income.ToString("c"), Environment.NewLine);
+                }
+                else // Towar jest ale w mniejszej ilości, niż chciał pacjent
+                {
+                    income = inventoryItem.Quantity * inventoryItem.Details.SellPrice;
+                    result += String.Format("{0} {1} chciał kupić {2} ale kupił tylko ostatnie {3} szt. za {4}{5}", this, currentPatient.Name, wantedItem,
+                                            inventoryItem.Quantity, income.ToString("c"), Environment.NewLine);
+                    pharmacy.Balance += income;
+                    inventoryItem.Quantity = 0;
+                }
+                
             }
-            else
+            else // Towaru nie ma w ogóle
             {
-                result = String.Format("{0} {1} chciał kupić {2} ale nie było (a za komuny to, panie, wszystko było!){3}", this, currentPatient.Name, wantedItem.Details.Name, Environment.NewLine);
+                result = String.Format("{0} {1} chciał kupić {2} ale nie było (a za komuny to, panie, wszystko było!){3}", this, currentPatient.Name, wantedItem, Environment.NewLine);
                 pharmacy.Reputation -= 1;
             }
 

@@ -58,7 +58,7 @@ namespace Engine
             Patients.Add(new Patient(2, "Jego Eminencja", 10, new string[] { "robi Sodomę i Gomorę", "grozi ekskomuniką" }));
             Patients.Add(new Patient(3, "Wujek Włodek", 10, FlavorText.AggroTexts));
             Patients.Add(new Patient(4, "Neo z Matrixa", 10, new string[] { "wygina zdalnie łyżki w socjalu" }));
-            Patients.Add(new Patient(5, "Buka", 10, new string[] { "stoi i się patrzy" } ));
+            Patients.Add(new Patient(5, "Buka", 10, new string[] { "stoi i się patrzy" }));
             Patients.Add(new Patient(6, "Sasha Grey", 10, FlavorText.AggroTexts));
             Patients.Add(new Patient(7, "Bolec", 10, new string[] { "giba się jak pier... rezus" }));
             Patients.Add(new Patient(8, "Generał Italia", 10, FlavorText.AggroTexts));
@@ -69,6 +69,7 @@ namespace Engine
             Patients.Add(new Patient(13, "Genowefa Pigwa", 10, FlavorText.AggroTexts));
             Patients.Add(new Patient(14, "Bendżamin Fluor", 10, FlavorText.AggroTexts));
             Patients.Add(new Patient(15, "Pan Tymol Mentol", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(15, "Profesór Doktór Wiktór", 10, FlavorText.AggroTexts));
         }
 
         public static Item ItemByID(int id)
