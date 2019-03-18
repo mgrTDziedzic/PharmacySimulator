@@ -22,27 +22,30 @@ namespace Engine
 
         private static void PopulateItems()
         {
-            Items.Add(new Item(2, "Dupomox 1 g", 20M));
-            Items.Add(new Item(4, "Dupomentin 1 g", 20M));
-            Items.Add(new Item(5, "Simvasrak 20 mg", 20M));
-            Items.Add(new Item(6, "Duporenal 10 mg", 10M));
+            Items.Add(new Item(2, "Dupomox 1 g", 20M, 1, 1));
+            Items.Add(new Item(4, "Dupomentin 1 g", 20M, 1, 1));
+            Items.Add(new Item(5, "Simvasrak 20 mg", 20M, 1, 4));
+            Items.Add(new Item(6, "Duporenal 10 mg", 10M, 1, 4));
         }
 
         private static void PopulateOTCItems()
         {
-            Items.Add(new Item(1000, "Srakostop 200 mg", 9.90M));
-            Items.Add(new Item(1001, "Senna Extra", 11.90M));
-            Items.Add(new Item(1002, "Kutassum Extr. Sicc.", 49.90M));
-            Items.Add(new Item(1003, "Asap 500 mg", 5.90M));
-            Items.Add(new Item(1005, "Syrop Lewoślazowy", 3.90M));
-            Items.Add(new Item(1006, "Dupoprofen 200 mg", 7.90M));
-            Items.Add(new Item(1007, "Dupoprofen 400 mg", 10.90M));
-            Items.Add(new Item(1008, "Diclosraja żel", 9.99M));
-            Items.Add(new Item(1009, "Therasru saszetki", 14.90M));
-            Items.Add(new Item(1100, "LaBroche-Possał krem", 69.90M));
-            Items.Add(new Item(1101, "LaBroche-Possał tonik", 49.90M));
-            Items.Add(new Item(1201, "Ścierac jour krem", 179.90M));
-            Items.Add(new Item(1202, "Ścierac nuit krem", 179.90M));
+            Items.Add(new Item(1000, "Srakostop 200 mg", 9.90M, 1, 2));
+            Items.Add(new Item(1001, "Senna Extra", 11.90M, 1, 2));
+            Items.Add(new Item(1002, "Kutassum Extr. Sicc.", 49.90M, 1, 1));
+            Items.Add(new Item(1003, "Asap 500 mg", 5.90M, 1, 1));
+            Items.Add(new Item(1005, "Syrop Lewoślazowy", 3.90M, 1, 1));
+            Items.Add(new Item(1006, "Dupoprofen 200 mg", 7.90M, 1, 1));
+            Items.Add(new Item(1007, "Dupoprofen 400 mg", 10.90M, 1, 1));
+            Items.Add(new Item(1008, "Diclosraja żel", 9.99M, 1, 1));
+            Items.Add(new Item(1009, "Therasru saszetki", 14.90M, 1, 1));
+            Items.Add(new Item(1100, "LaBroche-Possał krem", 69.90M, 1, 1));
+            Items.Add(new Item(1101, "LaBroche-Possał tonik", 49.90M, 1, 1));
+            Items.Add(new Item(1201, "Ścierac jour krem", 179.90M, 1, 1));
+            Items.Add(new Item(1202, "Ścierac nuit krem", 179.90M, 1, 1));
+            Items.Add(new Item(1302, "Kompresiki 5x5 cm", 0.70M, 3, 10));
+            Items.Add(new Item(1303, "Kompresiki 7,5x7,5 cm", 0.80M, 3, 10));
+            Items.Add(new Item(1303, "Kompresiki 9x9 cm", 0.90M, 3, 10));
         }    
 
         private static void PopulateEmployees()
@@ -69,7 +72,7 @@ namespace Engine
             Patients.Add(new Patient(13, "Genowefa Pigwa", 10, FlavorText.AggroTexts));
             Patients.Add(new Patient(14, "Bendżamin Fluor", 10, FlavorText.AggroTexts));
             Patients.Add(new Patient(15, "Pan Tymol Mentol", 10, FlavorText.AggroTexts));
-            Patients.Add(new Patient(15, "Profesór Doktór Wiktór", 10, FlavorText.AggroTexts));
+            Patients.Add(new Patient(16, "Profesór Doktór Wiktór", 10, FlavorText.AggroTexts));
         }
 
         public static Item ItemByID(int id)

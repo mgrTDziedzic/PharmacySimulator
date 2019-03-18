@@ -45,7 +45,9 @@ namespace Engine
             for (int i = 0; i < numberOfOTCLines; i++)
             {
                 int randomIndex = RandomNumberGenerator.NumberBetween(0, World.Items.Count - 1);
-                OTCList.Enqueue(new InventoryItem(World.Items[randomIndex], RandomNumberGenerator.NumberBetween(1, 10)));
+                Item wantedItem = World.Items[randomIndex];
+
+                OTCList.Enqueue(new InventoryItem(wantedItem, RandomNumberGenerator.NumberBetween(wantedItem.MinQuantityBought, wantedItem.MaxQuantityBought)));
             }
         }
     }
