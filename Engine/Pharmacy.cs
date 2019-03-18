@@ -77,7 +77,7 @@ namespace Engine
         {
             string result = dateTime.ToShortTimeString() + "-------------------------------" + Environment.NewLine;
 
-            if (RandomNumberGenerator.Chance(100) && (TodayPatients.Count > 0))
+            if (RandomNumberGenerator.Chance(20) && (TodayPatients.Count > 0))
             {
                 Patient newPatient = TodayPatients.Dequeue();
                 PatientsQueue.Enqueue(newPatient);

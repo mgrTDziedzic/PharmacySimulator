@@ -76,14 +76,5 @@ namespace Engine
             "żąda oświadczeń na piśmie",
             "żąda rozmowy z właścicielem"
         };
-
-        /*
-        public static string IdleMessage(Employee employee, Workstation workstation)
-        {
-            int randomIndex = RandomNumberGenerator.NumberBetween(0, idleText.Length - 1);
-
-            return String.Format("{0} {1} na stanowisku {2}" + Environment.NewLine, employee.Name, idleText[randomIndex], workstation.Number);
-        }
-        */
     }
 }

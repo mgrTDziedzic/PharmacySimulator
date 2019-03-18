@@ -29,18 +29,20 @@ namespace PharmacySimulator
             chamberLabel.Text = pharmacy.ChamberReputation.ToString();
 
             InventoryGridView.RowHeadersVisible = false;
-            InventoryGridView.ColumnCount = 2;
+            InventoryGridView.ColumnCount = 3;
             InventoryGridView.Columns[0].Name = "Towar";
             InventoryGridView.Columns[0].Width = 150;
             InventoryGridView.Columns[1].Name = "Ilość";
             InventoryGridView.Columns[1].Width = 50;
+            InventoryGridView.Columns[2].Name = "Cena";
+            InventoryGridView.Columns[2].Width = 50;
             InventoryGridView.Rows.Clear();
 
             foreach(InventoryItem inventoryItem in pharmacy.Inventory)
             {
                 if (inventoryItem.Quantity > 0)
                 {
-                    InventoryGridView.Rows.Add(new[] { inventoryItem.Details.Name, inventoryItem.Quantity.ToString() });
+                    InventoryGridView.Rows.Add(new[] { inventoryItem.Details.Name, inventoryItem.Quantity.ToString(), inventoryItem.Details.SellPrice.ToString("c") });
                 }
             }
 

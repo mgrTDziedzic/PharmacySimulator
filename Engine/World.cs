@@ -45,7 +45,7 @@ namespace Engine
             Items.Add(new Item(1202, "Ścierac nuit krem", 179.90M, 1, 1));
             Items.Add(new Item(1302, "Kompresiki 5x5 cm", 0.70M, 3, 10));
             Items.Add(new Item(1303, "Kompresiki 7,5x7,5 cm", 0.80M, 3, 10));
-            Items.Add(new Item(1303, "Kompresiki 9x9 cm", 0.90M, 3, 10));
+            Items.Add(new Item(1304, "Kompresiki 9x9 cm", 0.90M, 3, 10));
         }    
 
         private static void PopulateEmployees()

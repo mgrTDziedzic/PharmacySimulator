@@ -166,7 +166,7 @@
             this.InventoryGridView.Name = "InventoryGridView";
             this.InventoryGridView.ReadOnly = true;
             this.InventoryGridView.RowHeadersVisible = false;
-            this.InventoryGridView.Size = new System.Drawing.Size(205, 396);
+            this.InventoryGridView.Size = new System.Drawing.Size(270, 396);
             this.InventoryGridView.TabIndex = 3;
             // 
             // groupBox2
@@ -369,7 +369,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(767, 326);
+            this.button1.Location = new System.Drawing.Point(833, 326);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 83);
             this.button1.TabIndex = 4;
@@ -379,7 +379,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(766, 207);
+            this.button2.Location = new System.Drawing.Point(832, 207);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 51);
             this.button2.TabIndex = 5;
@@ -388,7 +388,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(844, 207);
+            this.button3.Location = new System.Drawing.Point(910, 207);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 51);
             this.button3.TabIndex = 5;
@@ -397,7 +397,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(766, 264);
+            this.button4.Location = new System.Drawing.Point(832, 264);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 51);
             this.button4.TabIndex = 5;
@@ -407,7 +407,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.balanceLabel);
-            this.groupBox5.Location = new System.Drawing.Point(766, 16);
+            this.groupBox5.Location = new System.Drawing.Point(832, 16);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(152, 56);
             this.groupBox5.TabIndex = 6;
@@ -427,7 +427,7 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.reputationLabel);
-            this.groupBox6.Location = new System.Drawing.Point(767, 78);
+            this.groupBox6.Location = new System.Drawing.Point(833, 78);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(152, 56);
             this.groupBox6.TabIndex = 6;
@@ -447,7 +447,7 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.chamberLabel);
-            this.groupBox7.Location = new System.Drawing.Point(767, 140);
+            this.groupBox7.Location = new System.Drawing.Point(833, 140);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(152, 56);
             this.groupBox7.TabIndex = 6;
@@ -476,7 +476,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 425);
+            this.ClientSize = new System.Drawing.Size(996, 425);
             this.Controls.Add(this.queueBox);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
